@@ -1,18 +1,86 @@
 ---
 import "../styles/global.css";
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const {
+    title = "CastCor - Materiais de Telhado de Alta Qualidade",
+    description = "Materiais de telhado premium para sua casa ou empresa. Telhas, calhas e acessórios com entrega rápida e garantia estendida.",
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="generator" content={Astro.generator} />
-        <title>Astro Basics</title>
+        <meta name="description" content={description} />
+
+        <meta name="robots" content="index, follow" />
+
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="website" />
+
+        <meta name="theme-color" content="#FF0000" />
+
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="preconnect" href="https://placehold.co" />
+        
+        <!-- Carregando estilos do Glide do diretório public -->
+        <link rel="stylesheet" href="/lib/glide/glide.core.min.css">
+        <link rel="stylesheet" href="/lib/glide/glide.theme.min.css">
+
+        <title>{title}</title>
     </head>
-    <body>
+    <body
+        class="bg-light text-dark min-h-screen flex flex-col overflow-x-hidden"
+    >
         <slot />
+
+        <!-- Carregando script do Glide do diretório public -->
+        <script is:inline src="/lib/glide/glide.min.js"></script>
+        
+        <script is:inline>
+            document.addEventListener("DOMContentLoaded", () => {
+                if (window.Glide) {
+                    document.querySelectorAll(".glide").forEach((slider) => {
+                        new Glide(slider, {
+                            type: "carousel",
+                            perView: 1,
+                            gap: 24,
+                            breakpoints: {
+                                640: { perView: 1 },
+                                768: { perView: 2 },
+                                1024: { perView: 3 },
+                            },
+                        }).mount();
+                    });
+                }
+            });
+            
+            // Para navegação Astro com View Transitions
+            document.addEventListener("astro:page-load", () => {
+                if (window.Glide) {
+                    document.querySelectorAll(".glide").forEach((slider) => {
+                        new Glide(slider, {
+                            type: "carousel",
+                            perView: 1,
+                            gap: 24,
+                            breakpoints: {
+                                640: { perView: 1 },
+                                768: { perView: 2 },
+                                1024: { perView: 3 },
+                            },
+                        }).mount();
+                    });
+                }
+            });
+        </script>
     </body>
 </html>
 

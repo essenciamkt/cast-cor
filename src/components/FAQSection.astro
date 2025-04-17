@@ -1,0 +1,99 @@
+---
+interface FAQ {
+    question: string;
+    answer: string;
+}
+
+const faqs: FAQ[] = [
+    {
+        question: "Quais são os tipos de telhas que vocês vendem?",
+        answer: "Oferecemos uma linha completa de telhas cerâmicas, metálicas, termoacústicas, ecológicas e de concreto. Cada tipo possui variações de modelos, cores e acabamentos para atender diferentes necessidades estéticas e técnicas."
+    },
+    {
+        question: "Qual a garantia dos produtos?",
+        answer: "Todos os nossos materiais de telhado possuem garantia mínima de 15 anos contra defeitos de fabricação. Alguns produtos premium podem ter garantia de até 30 anos, conforme especificações do fabricante."
+    },
+    {
+        question: "Vocês fazem entregas em todo o Brasil?",
+        answer: "Sim, realizamos entregas para todo o território nacional. Para capitais e regiões metropolitanas, nossa entrega expressa chega em até 48 horas. Para demais localidades, o prazo pode variar entre 3 a 7 dias úteis."
+    },
+    {
+        question: "É possível solicitar amostras dos materiais?",
+        answer: "Sim, disponibilizamos amostras gratuitas para profissionais da construção civil e para clientes em processo de decisão de compra. Basta solicitar através do formulário de orçamento."
+    },
+    {
+        question: "Vocês oferecem serviço de instalação ou apenas vendem os materiais?",
+        answer: "Somos especialistas na venda de materiais de telhado de alta qualidade. Embora não realizemos instalação diretamente, temos uma rede de parceiros qualificados que podemos recomendar para a execução do seu projeto."
+    },
+    {
+        question: "Como calcular a quantidade de material necessária para meu telhado?",
+        answer: "Oferecemos um serviço gratuito de cálculo de materiais. Envie-nos a planta do seu telhado ou as medidas da área, e nossa equipe técnica elaborará um orçamento detalhado com as quantidades exatas para evitar desperdícios."
+    }
+];
+---
+
+<section id="faq" class="py-20 relative overflow-hidden">
+    <!-- Background gradient mesh -->
+    <div class="absolute inset-0 bg-gradient-to-tl from-primary/5 via-light to-secondary/10 z-0"></div>
+    <div class="absolute top-20 right-20 w-80 h-80 bg-primary/10 rounded-full filter blur-3xl"></div>
+    <div class="absolute bottom-20 left-20 w-96 h-96 bg-primary/5 rounded-full filter blur-3xl"></div>
+    
+    <div class="container mx-auto px-4 md:px-6 relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Perguntas Frequentes</h2>
+            <p class="text-lg text-dark/70">
+                Tire suas principais dúvidas sobre nossos materiais de telhado e serviços. Se precisar de mais informações, não hesite em nos contatar.
+            </p>
+        </div>
+        
+        <div class="grid items-start grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 max-w-5xl mx-auto">
+            {faqs.map((faq, index) => (
+                <div 
+                    class="bg-white/50 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/30 hover:border-primary/20 transition-all duration-300"
+                    x-data={`{ open: ${index === 0 ? 'true' : 'false'} }`}
+                >
+                    <button 
+                        class="w-full flex justify-between items-center text-left"
+                        @click="open = !open"
+                        aria-expanded="false"
+                        :aria-expanded="open"
+                    >
+                        <h3 class="text-lg font-bold text-dark pr-8">{faq.question}</h3>
+                        <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            class="h-6 w-6 text-primary transform transition-transform duration-300" 
+                            :class="open ? 'rotate-180' : ''" 
+                            fill="none" 
+                            viewBox="0 0 24 24" 
+                            stroke="currentColor"
+                        >
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    
+                    <div 
+                        x-show="open" 
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 transform -translate-y-4"
+                        x-transition:enter-end="opacity-100 transform translate-y-0"
+                        x-transition:leave="transition ease-in duration-200"
+                        x-transition:leave-start="opacity-100 transform translate-y-0"
+                        x-transition:leave-end="opacity-0 transform -translate-y-4"
+                        class="mt-4 text-dark/70"
+                    >
+                        <p>{faq.answer}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+        
+        <div class="text-center mt-12">
+            <p class="text-dark/70 mb-6">
+                Ainda tem dúvidas? Entre em contato conosco para um atendimento personalizado.
+            </p>
+            <a href="#orcamento" class="inline-block bg-primary hover:bg-primary-dark text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
+                Falar com um Especialista
+            </a>
+        </div>
+    </div>
+</section>

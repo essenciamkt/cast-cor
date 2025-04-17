@@ -1,0 +1,311 @@
+---
+import PrimaryButton from "./PrimaryButton.astro";
+---
+
+<section id="orcamento" class="py-20 relative overflow-hidden">
+    <!-- Background gradient mesh -->
+    <div
+        class="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary-dark/95 z-0"
+    >
+    </div>
+
+    <!-- Decorative elements -->
+    <div
+        class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full filter blur-3xl -translate-x-10 -translate-y-40"
+    >
+    </div>
+    <div
+        class="absolute bottom-0 left-0 w-80 h-80 bg-white/10 rounded-full filter blur-3xl translate-y-20"
+    >
+    </div>
+
+    <div class="container mx-auto px-4 md:px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                    Garanta Materiais de Telhado com Qualidade Superior
+                </h2>
+                <p class="text-lg text-white/90 mb-8">
+                    Solicite agora um orçamento sem compromisso e receba
+                    atendimento especializado para o seu projeto. Garantimos os
+                    melhores preços e condições do mercado.
+                </p>
+
+                <div class="space-y-6 mb-8">
+                    <div class="flex items-start">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6 text-white mt-0.5 mr-3 flex-shrink-0"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <p class="text-white/90">
+                            Resposta em até 2 horas em dias úteis
+                        </p>
+                    </div>
+                    <div class="flex items-start">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6 text-white mt-0.5 mr-3 flex-shrink-0"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <p class="text-white/90">
+                            Produtos com garantia estendida documentada
+                        </p>
+                    </div>
+                    <div class="flex items-start">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6 text-white mt-0.5 mr-3 flex-shrink-0"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <p class="text-white/90">
+                            Parcelamento em até 12x ou desconto para pagamento à
+                            vista
+                        </p>
+                    </div>
+                    <div class="flex items-start">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6 text-white mt-0.5 mr-3 flex-shrink-0"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <p class="text-white/90">
+                            Consultoria técnica gratuita para o seu projeto
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Counter -->
+                <div
+                    class="bg-white/10 backdrop-blur-md rounded-lg p-6 mb-8 border border-white/20"
+                >
+                    <p class="text-white font-medium mb-2">
+                        Já ajudamos mais de:
+                    </p>
+                    <p class="text-4xl font-bold text-white">
+                        10.000+ clientes
+                    </p>
+                    <p class="text-white/80 mt-2">
+                        Seja o próximo a transformar seu projeto com materiais
+                        de qualidade.
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <!-- Form -->
+                <div
+                    class="bg-white/95 backdrop-blur-md rounded-xl p-8 shadow-xl border border-white/30"
+                >
+                    <h3 class="text-2xl font-bold text-dark mb-6">
+                        Solicite seu Orçamento Gratuito
+                    </h3>
+
+                    <form
+                        x-data="{ sending: false, sent: false }"
+                        class="space-y-6"
+                    >
+                        <div>
+                            <label
+                                for="name"
+                                class="block text-sm font-medium text-dark mb-1"
+                                >Nome completo *</label
+                            >
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                required
+                                class="w-full px-4 py-3 rounded-lg border border-gray/30 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                placeholder="Digite seu nome"
+                            />
+                        </div>
+
+                        <div>
+                            <label
+                                for="email"
+                                class="block text-sm font-medium text-dark mb-1"
+                                >E-mail *</label
+                            >
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                                class="w-full px-4 py-3 rounded-lg border border-gray/30 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                placeholder="Digite seu e-mail"
+                            />
+                        </div>
+
+                        <div>
+                            <label
+                                for="phone"
+                                class="block text-sm font-medium text-dark mb-1"
+                                >Telefone *</label
+                            >
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                required
+                                class="w-full px-4 py-3 rounded-lg border border-gray/30 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                placeholder="(00) 00000-0000"
+                            />
+                        </div>
+
+                        <div>
+                            <label
+                                for="project"
+                                class="block text-sm font-medium text-dark mb-1"
+                                >Tipo de projeto *</label
+                            >
+                            <select
+                                id="project"
+                                name="project"
+                                required
+                                class="w-full px-4 py-3 rounded-lg border border-gray/30 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                            >
+                                <option value="" disabled selected
+                                    >Selecione uma opção</option
+                                >
+                                <option value="residencial">Residencial</option>
+                                <option value="comercial">Comercial</option>
+                                <option value="industrial">Industrial</option>
+                                <option value="rural">Rural</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label
+                                for="message"
+                                class="block text-sm font-medium text-dark mb-1"
+                                >Mensagem</label
+                            >
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="4"
+                                class="w-full px-4 py-3 rounded-lg border border-gray/30 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                placeholder="Descreva seu projeto ou dúvidas..."
+                            ></textarea>
+                        </div>
+
+                        <div class="flex items-start">
+                            <input
+                                type="checkbox"
+                                id="terms"
+                                name="terms"
+                                required
+                                class="mt-1.5 h-4 w-4 text-primary border-gray/30 focus:ring-primary/30 rounded"
+                            />
+                            <label
+                                for="terms"
+                                class="ml-3 text-sm text-dark/70"
+                            >
+                                Concordo em receber informações sobre produtos e
+                                serviços da CastCor via e-mail e telefone. *
+                            </label>
+                        </div>
+
+                        <div x-show="!sent">
+                            <button
+                                type="submit"
+                                class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
+                                x-bind:disabled="sending"
+                                @click.prevent="sending = true; setTimeout(() => { sending = false; sent = true; }, 1500)"
+                            >
+                                <span x-show="!sending"
+                                    >Solicitar Orçamento Gratuito</span
+                                >
+                                <span
+                                    x-show="sending"
+                                    class="flex items-center justify-center"
+                                >
+                                    <svg
+                                        class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <circle
+                                            class="opacity-25"
+                                            cx="12"
+                                            cy="12"
+                                            r="10"
+                                            stroke="currentColor"
+                                            stroke-width="4"></circle>
+                                        <path
+                                            class="opacity-75"
+                                            fill="currentColor"
+                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                        ></path>
+                                    </svg>
+                                    Enviando...
+                                </span>
+                            </button>
+                        </div>
+
+                        <div
+                            x-show="sent"
+                            x-transition
+                            class="bg-green-50 border border-green-200 text-green-800 rounded-lg p-4 text-center"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6 mx-auto mb-2 text-green-500"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <p class="font-medium">
+                                Orçamento solicitado com sucesso!
+                            </p>
+                            <p class="text-sm mt-1">
+                                Entraremos em contato em breve.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

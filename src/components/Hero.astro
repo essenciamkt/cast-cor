@@ -1,0 +1,147 @@
+---
+import PrimaryButton from "./PrimaryButton.astro";
+---
+
+<section
+    class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden"
+>
+    <!-- Background gradient mesh -->
+    <div
+        class="absolute inset-0 bg-gradient-to-br from-primary/10 via-light to-secondary/20 z-0"
+    >
+    </div>
+
+    <!-- Decorative elements -->
+    <div
+        class="absolute top-20 right-10 w-64 h-64 bg-primary/20 rounded-full filter blur-3xl"
+    >
+    </div>
+    <div
+        class="absolute bottom-20 left-10 w-72 h-72 bg-primary/10 rounded-full filter blur-3xl"
+    >
+    </div>
+
+    <div class="container mx-auto px-4 md:px-6 z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1">
+                <h1
+                    class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-dark mb-6"
+                >
+                    Telhados que <span class="text-primary">Protegem</span> e <span
+                        class="text-primary">Valorizam</span
+                    > sua Propriedade
+                </h1>
+                <p class="text-lg md:text-xl text-dark/80 mb-8 max-w-lg">
+                    Materiais de alta qualidade com garantia estendida. Completa
+                    segurança e estética impecável para o seu imóvel.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <PrimaryButton
+                        text="Solicitar Orçamento Gratuito"
+                        href="#orcamento"
+                        classes="text-lg"
+                    />
+                    <a
+                        href="#produtos"
+                        class="inline-flex items-center justify-center py-3 px-6 border-2 border-dark/20 text-dark font-medium rounded-lg hover:bg-dark/5 transition-colors duration-300"
+                    >
+                        Ver Produtos
+                    </a>
+                </div>
+
+                <!-- Trust badges -->
+                <div class="mt-8 flex flex-wrap items-center gap-6">
+                    <div class="flex items-center gap-2">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6 text-primary"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                            ></path>
+                        </svg>
+                        <span class="text-sm font-medium"
+                            >Garantia de 15+ anos</span
+                        >
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6 text-primary"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                            ></path>
+                        </svg>
+                        <span class="text-sm font-medium">Entrega em 48h</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6 text-primary"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-sm font-medium"
+                            >+10.000 clientes satisfeitos</span
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-1 lg:order-2 relative">
+                <!-- Glassmorphism card -->
+                <div
+                    class="relative h-[400px] md:h-[500px] overflow-hidden rounded-2xl shadow-xl"
+                >
+                    <img
+                        src="https://placehold.co/1200x900/FF0000/FFFFFF.webp?text=Telhado+Premium"
+                        alt="Telhado de alta qualidade instalado pela CastCor"
+                        class="w-full h-full object-cover"
+                        loading="eager"
+                    />
+                    <!-- Glass overlay with product info -->
+                    <div
+                        class="absolute bottom-0 left-0 right-0 bg-white/20 backdrop-blur-lg p-6 border-t border-white/30"
+                    >
+                        <h3 class="text-xl font-bold text-white">
+                            Telhas Cerâmicas Premium
+                        </h3>
+                        <p class="text-white/90 mt-2">
+                            Resistentes a intempéries e com design exclusivo
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Floating accent elements -->
+                <div
+                    class="absolute -top-6 -right-6 w-24 h-24 bg-primary rounded-full opacity-20 blur-xl"
+                >
+                </div>
+                <div
+                    class="absolute -bottom-10 -left-10 w-32 h-32 bg-primary/30 rounded-full filter blur-xl"
+                >
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

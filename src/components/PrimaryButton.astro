@@ -1,0 +1,35 @@
+---
+interface Props {
+    text: string;
+    href?: string;
+    type?: "button" | "submit";
+    classes?: string;
+    fullWidth?: boolean;
+}
+
+const {
+    text,
+    href,
+    type = "button",
+    classes = "",
+    fullWidth = false,
+} = Astro.props;
+---
+
+{
+    href ? (
+        <a
+            href={href}
+            class={`inline-block bg-primary hover:bg-primary-dark text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 ${fullWidth ? "w-full text-center" : ""} ${classes}`}
+        >
+            {text}
+        </a>
+    ) : (
+        <button
+            type={type}
+            class={`bg-primary hover:bg-primary-dark text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 ${fullWidth ? "w-full" : ""} ${classes}`}
+        >
+            {text}
+        </button>
+    )
+}
