@@ -30,10 +30,10 @@ const {
 
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="preconnect" href="https://placehold.co" />
-        
+
         <!-- Carregando estilos do Glide do diretório public -->
-        <link rel="stylesheet" href="/lib/glide/glide.core.min.css">
-        <link rel="stylesheet" href="/lib/glide/glide.theme.min.css">
+        <link rel="stylesheet" href="/lib/glide/glide.core.min.css" />
+        <link rel="stylesheet" href="/lib/glide/glide.theme.min.css" />
 
         <title>{title}</title>
     </head>
@@ -44,7 +44,7 @@ const {
 
         <!-- Carregando script do Glide do diretório public -->
         <script is:inline src="/lib/glide/glide.min.js"></script>
-        
+
         <script is:inline>
             document.addEventListener("DOMContentLoaded", () => {
                 if (window.Glide) {
@@ -62,7 +62,7 @@ const {
                     });
                 }
             });
-            
+
             // Para navegação Astro com View Transitions
             document.addEventListener("astro:page-load", () => {
                 if (window.Glide) {
