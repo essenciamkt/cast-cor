@@ -2,28 +2,29 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
-import ProductsSection from "../components/ProductsSection.astro";
-import AdvantagesSection from "../components/AdvantagesSection.astro";
-import ProjectsSection from "../components/ProjectsSection.astro";
-import TestimonialsSection from "../components/TestimonialsSection.astro";
-import FAQSection from "../components/FAQSection.astro";
-import OrcamentoSection from "../components/OrcamentoSection.astro";
+import PainSolution from "../components/PainSolution.astro";
+import Products from "../components/Products.astro";
+import Benefits from "../components/Benefits.astro";
+import ForWhom from "../components/ForWhom.astro";
+import Testimonials from "../components/Testimonials.astro";
+import OfferCTA from "../components/OfferCTA.astro";
+import FAQ from "../components/FAQ.astro";
+import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
 ---
 
-<Layout
-	title="CastCor - Materiais de Telhado de Alta Qualidade"
-	description="Adquira materiais de telhado premium com garantia estendida. Telhas, calhas e acessórios com entrega rápida para sua construção ou reforma."
->
+<Layout>
+	<Header />
 	<main>
-		<Header />
 		<Hero />
-		<ProductsSection />
-		<AdvantagesSection />
-		<ProjectsSection />
-		<TestimonialsSection />
-		<FAQSection />
-		<OrcamentoSection />
-		<Footer />
+		<PainSolution />
+		<Products />
+		<Benefits />
+		<ForWhom />
+		<Testimonials />
+		<!-- <OfferCTA /> -->
+		<FAQ />
+		<Contact />
 	</main>
+	<Footer />
 </Layout>

@@ -1,130 +1,37 @@
 ---
-import PrimaryButton from "./PrimaryButton.astro";
+
 ---
 
-<header
-    class="fixed top-0 left-0 w-full z-50 bg-secondary/80 backdrop-blur-lg border-b border-white/20"
-    x-data="{ mobileMenuOpen: false }"
->
-    <div
-        class="container mx-auto px-4 md:px-6 py-4 flex items-center justify-between"
-    >
-        <div class="flex items-center">
+<header class="sticky top-0 w-full bg-white/95 backdrop-blur-md shadow-sm z-50">
+    <div class="container mx-auto px-4 md:px-6">
+        <div class="flex justify-between items-center h-16">
+            <!-- Logo -->
+            <a href="#" class="flex items-center">
+                <span class="font-bold text-xl">
+                    <span class="text-orange-500">Telhados</span>Pro
+                </span>
+            </a>
+
+            <!-- CTA Button - only element in header besides logo -->
             <a
-                href="#"
-                class="text-2xl font-bold text-primary"
-                aria-label="CastCor - Página Inicial"
+                href="#contato"
+                class="inline-flex items-center justify-center px-4 py-2 text-center font-medium rounded-lg bg-orange-100 text-orange-700 hover:bg-orange-200 transition-colors"
             >
-                CastCor
+                FAZER ORÇAMENTO AGORA MESMO
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 ml-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5l7 7-7 7"></path>
+                </svg>
             </a>
         </div>
-
-        <!-- Desktop Menu -->
-        <nav class="hidden md:flex items-center space-x-8">
-            <a
-                href="#produtos"
-                class="text-dark hover:text-primary font-medium transition-colors"
-                >Produtos</a
-            >
-            <a
-                href="#vantagens"
-                class="text-dark hover:text-primary font-medium transition-colors"
-                >Vantagens</a
-            >
-            <a
-                href="#projetos"
-                class="text-dark hover:text-primary font-medium transition-colors"
-                >Projetos</a
-            >
-            <a
-                href="#depoimentos"
-                class="text-dark hover:text-primary font-medium transition-colors"
-                >Depoimentos</a
-            >
-            <a
-                href="#faq"
-                class="text-dark hover:text-primary font-medium transition-colors"
-                >FAQ</a
-            >
-            <PrimaryButton text="Solicitar Orçamento" href="#orcamento" />
-        </nav>
-
-        <!-- Mobile Menu Button -->
-        <button
-            @click="mobileMenuOpen = !mobileMenuOpen"
-            class="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg"
-            aria-label="Menu"
-            aria-expanded="false"
-            :aria-expanded="mobileMenuOpen"
-        >
-            <span
-                class="block w-6 h-0.5 bg-primary mb-1.5 transition-transform duration-300"
-                :class="mobileMenuOpen ? 'rotate-45 translate-y-2' : ''"></span>
-            <span
-                class="block w-6 h-0.5 bg-primary mb-1.5 transition-opacity duration-300"
-                :class="mobileMenuOpen ? 'opacity-0' : ''"></span>
-            <span
-                class="block w-6 h-0.5 bg-primary transition-transform duration-300"
-                :class="mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''"
-            ></span>
-        </button>
-    </div>
-
-    <!-- Mobile Menu Panel -->
-    <div
-        x-show="mobileMenuOpen"
-        x-transition:enter="transition ease-out duration-300"
-        x-transition:enter-start="opacity-0 scale-95"
-        x-transition:enter-end="opacity-100 scale-100"
-        x-transition:leave="transition ease-in duration-200"
-        x-transition:leave-start="opacity-100 scale-100"
-        x-transition:leave-end="opacity-0 scale-95"
-        class="md:hidden bg-white/95 backdrop-blur-md absolute w-full border-b border-gray-200"
-        x-cloak
-    >
-        <nav class="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <a
-                @click="mobileMenuOpen = false"
-                href="#produtos"
-                class="text-dark hover:text-primary py-2 px-3 rounded-lg font-medium"
-                >Produtos</a
-            >
-            <a
-                @click="mobileMenuOpen = false"
-                href="#vantagens"
-                class="text-dark hover:text-primary py-2 px-3 rounded-lg font-medium"
-                >Vantagens</a
-            >
-            <a
-                @click="mobileMenuOpen = false"
-                href="#projetos"
-                class="text-dark hover:text-primary py-2 px-3 rounded-lg font-medium"
-                >Projetos</a
-            >
-            <a
-                @click="mobileMenuOpen = false"
-                href="#depoimentos"
-                class="text-dark hover:text-primary py-2 px-3 rounded-lg font-medium"
-                >Depoimentos</a
-            >
-            <a
-                @click="mobileMenuOpen = false"
-                href="#faq"
-                class="text-dark hover:text-primary py-2 px-3 rounded-lg font-medium"
-                >FAQ</a
-            >
-            <PrimaryButton
-                text="Solicitar Orçamento"
-                href="#orcamento"
-                fullWidth={true}
-                classes="mt-2"
-            />
-        </nav>
     </div>
 </header>
-
-<style>
-    [x-cloak] {
-        display: none !important;
-    }
-</style>

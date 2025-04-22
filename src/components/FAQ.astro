@@ -1,0 +1,178 @@
+---
+
+---
+
+<section id="faq" class="py-20 bg-slate-50">
+    <div class="container mx-auto px-4 md:px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-6">
+                Perguntas Frequentes
+            </h2>
+            <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+                Respostas para as dúvidas mais comuns dos nossos clientes
+            </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-6" x-data="{selected: null}">
+            <!-- FAQ Item 1 -->
+            <div
+                class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100"
+            >
+                <div
+                    @click="selected !== 1 ? selected = 1 : selected = null"
+                    class="p-6 cursor-pointer flex items-center justify-between"
+                >
+                    <h3 class="text-lg md:text-xl font-semibold text-slate-800">
+                        Vocês fazem entrega na minha cidade?
+                    </h3>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 text-orange-500 transition-transform"
+                        :class="{'rotate-180': selected === 1}"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div
+                    x-show="selected === 1"
+                    x-transition:enter="transition ease-out duration-200"
+                    x-transition:enter-start="opacity-0 transform -translate-y-2"
+                    x-transition:enter-end="opacity-100 transform translate-y-0"
+                    class="px-6 pb-6"
+                >
+                    <p class="text-slate-600">
+                        Sim! Atendemos toda a região. Fale com nossa equipe e
+                        consulte as condições especiais de frete.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div
+                class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100"
+            >
+                <div
+                    @click="selected !== 2 ? selected = 2 : selected = null"
+                    class="p-6 cursor-pointer flex items-center justify-between"
+                >
+                    <h3 class="text-lg md:text-xl font-semibold text-slate-800">
+                        As madeiras já vêm tratadas?
+                    </h3>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 text-orange-500 transition-transform"
+                        :class="{'rotate-180': selected === 2}"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div
+                    x-show="selected === 2"
+                    x-transition:enter="transition ease-out duration-200"
+                    x-transition:enter-start="opacity-0 transform -translate-y-2"
+                    x-transition:enter-end="opacity-100 transform translate-y-0"
+                    class="px-6 pb-6"
+                >
+                    <p class="text-slate-600">
+                        Sim. Todas nossas madeiras são secas, tratadas e com
+                        procedência garantida. Também fazemos cortes sob medida.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div
+                class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100"
+            >
+                <div
+                    @click="selected !== 3 ? selected = 3 : selected = null"
+                    class="p-6 cursor-pointer flex items-center justify-between"
+                >
+                    <h3 class="text-lg md:text-xl font-semibold text-slate-800">
+                        Posso comprar só telhas ou só madeira?
+                    </h3>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 text-orange-500 transition-transform"
+                        :class="{'rotate-180': selected === 3}"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div
+                    x-show="selected === 3"
+                    x-transition:enter="transition ease-out duration-200"
+                    x-transition:enter-start="opacity-0 transform -translate-y-2"
+                    x-transition:enter-end="opacity-100 transform translate-y-0"
+                    class="px-6 pb-6"
+                >
+                    <p class="text-slate-600">
+                        Claro! Trabalhamos com vendas avulsas e também com
+                        pacotes completos para telhado.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div
+                class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100"
+            >
+                <div
+                    @click="selected !== 4 ? selected = 4 : selected = null"
+                    class="p-6 cursor-pointer flex items-center justify-between"
+                >
+                    <h3 class="text-lg md:text-xl font-semibold text-slate-800">
+                        Posso fazer o orçamento pelo WhatsApp?
+                    </h3>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 text-orange-500 transition-transform"
+                        :class="{'rotate-180': selected === 4}"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+                <div
+                    x-show="selected === 4"
+                    x-transition:enter="transition ease-out duration-200"
+                    x-transition:enter-start="opacity-0 transform -translate-y-2"
+                    x-transition:enter-end="opacity-100 transform translate-y-0"
+                    class="px-6 pb-6"
+                >
+                    <p class="text-slate-600">
+                        Sim. Nossa equipe está pronta para te atender agora
+                        mesmo. É só clicar no botão e falar direto com a gente.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

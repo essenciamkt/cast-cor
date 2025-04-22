@@ -1,94 +1,75 @@
 ---
-import "../styles/global.css";
+import "../assets/style.css";
 
 interface Props {
-    title?: string;
-    description?: string;
+	title?: string;
+	description?: string;
 }
 
 const {
-    title = "CastCor - Materiais de Telhado de Alta Qualidade",
-    description = "Materiais de telhado premium para sua casa ou empresa. Telhas, calhas e acessórios com entrega rápida e garantia estendida.",
+	title = "TelhadosPro - Especialistas em Telhados e Materiais para Construção",
+	description = "A melhor escolha em materiais para telhado. Qualidade, atendimento técnico e entregas pontuais para sua obra.",
 } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="generator" content={Astro.generator} />
-        <meta name="description" content={description} />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="description" content={description} />
+		<meta name="generator" content={Astro.generator} />
 
-        <meta name="robots" content="index, follow" />
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
 
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:type" content="website" />
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
 
-        <meta name="theme-color" content="#FF0000" />
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
 
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="preconnect" href="https://placehold.co" />
+		<!-- Glide.js CSS -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css"
+		/>
 
-        <!-- Carregando estilos do Glide do diretório public -->
-        <link rel="stylesheet" href="/lib/glide/glide.core.min.css" />
-        <link rel="stylesheet" href="/lib/glide/glide.theme.min.css" />
+		<title>{title}</title>
 
-        <title>{title}</title>
-    </head>
-    <body
-        class="bg-light text-dark min-h-screen flex flex-col overflow-x-hidden"
-    >
-        <slot />
-
-        <!-- Carregando script do Glide do diretório public -->
-        <script is:inline src="/lib/glide/glide.min.js"></script>
-
-        <script is:inline>
-            document.addEventListener("DOMContentLoaded", () => {
-                if (window.Glide) {
-                    document.querySelectorAll(".glide").forEach((slider) => {
-                        new Glide(slider, {
-                            type: "carousel",
-                            perView: 1,
-                            gap: 24,
-                            breakpoints: {
-                                640: { perView: 1 },
-                                768: { perView: 2 },
-                                1024: { perView: 3 },
-                            },
-                        }).mount();
-                    });
-                }
-            });
-
-            // Para navegação Astro com View Transitions
-            document.addEventListener("astro:page-load", () => {
-                if (window.Glide) {
-                    document.querySelectorAll(".glide").forEach((slider) => {
-                        new Glide(slider, {
-                            type: "carousel",
-                            perView: 1,
-                            gap: 24,
-                            breakpoints: {
-                                640: { perView: 1 },
-                                768: { perView: 2 },
-                                1024: { perView: 3 },
-                            },
-                        }).mount();
-                    });
-                }
-            });
-        </script>
-    </body>
+		<!-- Alpine.js -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+			defer></script>
+	</head>
+	<body class="font-sans antialiased text-gray-800">
+		<slot />
+	</body>
 </html>
 
-<style>
-    html,
-    body {
-        margin: 0;
-        width: 100%;
-        height: 100%;
-    }
+<style is:global>
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		font-family: "Inter", sans-serif;
+		margin: 0;
+		width: 100%;
+		min-height: 100vh;
+	}
 </style>
