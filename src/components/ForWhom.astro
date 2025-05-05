@@ -1,5 +1,54 @@
 ---
-
+const cards = [
+    {
+        title: "Engenheiros e arquitetos",
+        description:
+            "Profissionais que precisam de material de qualidade e assistência técnica para entregar projetos impecáveis aos seus clientes.",
+        svgContent: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>`,
+    },
+    {
+        title: "Construtores e empreiteiros",
+        description:
+            "Profissionais que dependem de fornecimento pontual e materiais sem defeitos para cumprir prazos e orçamentos.",
+        svgContent: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        </svg>`,
+    },
+    {
+        title: "Proprietários em reforma",
+        description:
+            "Pessoas que estão construindo ou reformando e buscam orientação técnica e materiais de qualidade para seus lares.",
+        svgContent: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>`,
+    },
+    {
+        title: "Pedreiros e profissionais de obra",
+        description:
+            "Mestres de obra e profissionais que valorizam material bem selecionado e de qualidade para o melhor resultado em seus projetos.",
+        svgContent: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
+        </svg>`,
+    },
+    {
+        title: "Carpinteiros",
+        description:
+            "Profissionais que dependem de madeiras de qualidade e atendimento ágil para garantir precisão, acabamento impecável e agilidade na entrega de seus serviços.",
+        svgContent: `<svg fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-500">
+            <path d="M506.09,191.163c-14.612-14.612-63.777-63.776-78.354-78.354l11.847-11.847c7.884-7.884,7.884-20.665,0-28.549
+                c-7.881-7.882-20.664-7.884-28.549,0l-11.849,11.849L320.838,5.913c-7.882-7.884-20.665-7.884-28.549,0L219.622,78.58
+                c-7.878,7.877-7.884,20.666,0,28.549l78.348,78.348L176.204,307.243l-17.182-17.182c-7.878-7.88-20.668-7.882-28.549,0
+                L18.959,401.575c-25.277,25.277-25.28,66.187,0,91.466c25.273,25.276,66.189,25.28,91.466,0l111.514-111.514
+                c7.884-7.884,7.884-20.665,0-28.549l-17.187-17.187l121.766-121.766c14.579,14.579,63.743,63.743,78.355,78.354
+                c7.881,7.884,20.664,7.885,28.549,0l72.667-72.667C513.967,211.835,513.973,199.046,506.09,191.163z M81.877,464.492
+                c-9.497,9.496-24.868,9.499-34.368,0c0,0,0,0,0-0.001c-9.497-9.496-9.5-24.868,0-34.368l97.241-97.241l34.368,34.368
+                L81.877,464.492z M278.944,109.353l-16.498-16.498l44.119-44.119l16.498,16.498L278.944,109.353z M307.493,137.901l44.119-44.119
+                l66.607,66.607L374.1,204.509L307.493,137.901z M419.147,249.556l-16.498-16.498l44.119-44.119l16.5,16.498L419.147,249.556z"/>
+        </svg>`,
+    },
+];
 ---
 
 <section id="clientes" class="py-20">
@@ -16,133 +65,19 @@
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Client type 1 -->
-            <div
-                class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 flex flex-col items-center text-center transition-all hover:shadow-xl hover:-translate-y-1"
-            >
-                <div
-                    class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 mb-6"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-8 w-8 text-red-500"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                        ></path>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-3">
-                    Engenheiros e arquitetos
-                </h3>
-                <p class="text-gray-600">
-                    Profissionais que precisam de material de qualidade e
-                    assistência técnica para entregar projetos impecáveis aos
-                    seus clientes.
-                </p>
-            </div>
-
-            <!-- Client type 2 -->
-            <div
-                class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 flex flex-col items-center text-center transition-all hover:shadow-xl hover:-translate-y-1"
-            >
-                <div
-                    class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 mb-6"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-8 w-8 text-red-500"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                        ></path>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-3">
-                    Construtores e empreiteiros
-                </h3>
-                <p class="text-gray-600">
-                    Profissionais que dependem de fornecimento pontual e
-                    materiais sem defeitos para cumprir prazos e orçamentos.
-                </p>
-            </div>
-
-            <!-- Client type 3 -->
-            <div
-                class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 flex flex-col items-center text-center transition-all hover:shadow-xl hover:-translate-y-1"
-            >
-                <div
-                    class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 mb-6"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-8 w-8 text-red-500"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                        ></path>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-3">
-                    Proprietários em reforma
-                </h3>
-                <p class="text-gray-600">
-                    Pessoas que estão construindo ou reformando e buscam
-                    orientação técnica e materiais de qualidade para seus lares.
-                </p>
-            </div>
-
-            <!-- Client type 5 -->
-            <div
-                class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 flex flex-col items-center text-center transition-all hover:shadow-xl hover:-translate-y-1"
-            >
-                <div
-                    class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 mb-6"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-8 w-8 text-red-500"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"
-                        ></path>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-3">
-                    Pedreiros e profissionais de obra
-                </h3>
-                <p class="text-gray-600">
-                    Mestres de obra e profissionais que valorizam material bem
-                    selecionado e de qualidade para o melhor resultado em seus
-                    projetos.
-                </p>
-            </div>
-
-            <!-- CTA card -->
+            {
+                cards.map((card) => (
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 flex flex-col items-center text-center transition-all hover:shadow-xl hover:-translate-y-1">
+                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 mb-6">
+                            <div set:html={card.svgContent} />
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">
+                            {card.title}
+                        </h3>
+                        <p class="text-gray-600">{card.description}</p>
+                    </div>
+                ))
+            }
             <div
                 class="bg-gradient-to-br from-red-600 to-red-700 rounded-2xl shadow-lg p-8 border border-red-300 flex flex-col items-center text-center text-white"
             >
