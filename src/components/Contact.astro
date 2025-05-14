@@ -1,5 +1,6 @@
 ---
 import Button from "./Button.astro";
+import { Image } from "astro:assets";
 ---
 
 <section id="contato" class="py-20">
@@ -143,10 +144,12 @@ import Button from "./Button.astro";
                         </p>
 
                         <div class="flex justify-center">
-                            <img
+                            <Image
                                 src="/img/logo.png"
                                 alt="CastCor Madeiras Logo"
-                                class="h-24 mb-6"
+                                width={262}
+                                height={80}
+                                class="h-20 w-auto mb-6"
                             />
                         </div>
 

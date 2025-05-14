@@ -1,5 +1,6 @@
 ---
 import Button from "./Button.astro";
+import { Image } from "astro:assets";
 ---
 
 <section class="relative py-20 md:py-32">
@@ -195,9 +196,11 @@ import Button from "./Button.astro";
             <!-- Hero image with floating elements -->
             <div class="relative">
                 <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-                    <img
+                    <Image
                         src="/img/Design_sem_nome_(3).png"
                         alt="CastCor Madeiras"
+                        width={800}
+                        height={600}
                         class="w-full h-auto"
                     />
                 </div>
