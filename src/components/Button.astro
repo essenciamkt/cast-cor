@@ -4,6 +4,7 @@ interface Props {
     variant?: "primary" | "secondary";
     class?: string;
     fullWidth?: boolean;
+    isWhatsApp?: boolean;
 }
 
 const {
@@ -11,6 +12,7 @@ const {
     variant = "primary",
     class: className = "",
     fullWidth = false,
+    isWhatsApp = false,
 } = Astro.props;
 ---
 
@@ -24,6 +26,9 @@ const {
             "bg-green-500 text-white shadow-lg shadow-green-500/30 hover:bg-green-600 hover:shadow-xl hover:shadow-green-500/40",
         className,
     ]}
+    onclick={isWhatsApp
+        ? "return gtag_report_conversion(this.href);"
+        : undefined}
 >
     <slot />
     {
