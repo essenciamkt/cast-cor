@@ -1,0 +1,1025 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Contact from "../components/Contact.astro";
+import Button from "../components/Button.astro";
+import { Image } from "astro:assets";
+
+// Dados regionais para SEO
+const regions = ["Niterói", "Maricá", "São Gonçalo"];
+const regionString = regions.join(", ");
+
+// Produtos de madeira
+const woodProducts = [
+    {
+        name: "Maçaranduba",
+        description:
+            "Ideal para estruturas de telhado, alta resistência e durabilidade.",
+        image: "/img/madeiras.png",
+    },
+    {
+        name: "Cambará",
+        description: "Ótimo custo-benefício para vigas, caibros e ripas.",
+        image: "/img/madeiras.png",
+    },
+    {
+        name: "Garapa",
+        description:
+            "Resistente a cupins, indicada para áreas externas e internas.",
+        image: "/img/madeiras.png",
+    },
+];
+
+// Produtos de telhas
+const roofProducts = [
+    {
+        name: "Telhas Coloniais",
+        description:
+            "Portuguesa, Americana, Laranjal Paulista, Esmaltada Karina. Tradição e beleza.",
+        image: "/img/telhas-coloniais.png",
+    },
+    {
+        name: "Telhas de Fibrocimento",
+        description:
+            "Resistência e economia para sua cobertura. Diversas medidas.",
+        image: "/img/telha-de-fibrocimento.png",
+    },
+    {
+        name: "Telhas Termoacústicas",
+        description:
+            "Conforto térmico e acústico para seu ambiente. Consulte modelos.",
+        image: "/img/telha-de-fibrocimento.png",
+    },
+];
+
+// Benefícios da empresa
+const benefits = [
+    {
+        icon: "shield",
+        title: "Madeira Certificada",
+        description: `Segurança e procedência para sua obra em ${regionString}.`,
+    },
+    {
+        icon: "truck",
+        title: "Entrega Imbatível",
+        description: `Agilidade e cuidado no transporte para ${regionString}.`,
+    },
+    {
+        icon: "clock",
+        title: "42 Anos de Tradição",
+        description:
+            "Experiência e confiança que você só encontra aqui. Mesmo endereço, sempre!",
+    },
+    {
+        icon: "money",
+        title: "Cobrimos Orçamentos",
+        description:
+            "Traga seu orçamento! Buscamos a melhor condição possível para você.",
+    },
+    {
+        icon: "user",
+        title: "Atendimento com o Dono",
+        description:
+            "Negocie diretamente e tenha suas dúvidas resolvidas na hora.",
+    },
+    {
+        icon: "star",
+        title: "Qualidade Garantida",
+        description:
+            "Compromisso com os melhores materiais para sua obra durar muito mais.",
+    },
+];
+
+// Público-alvo
+const targetAudience = [
+    {
+        title: "Carpinteiros",
+        description: `Madeira de qualidade e entrega pontual para seus projetos em ${regionString}. Fale conosco!`,
+    },
+    {
+        title: "Construtores e Empreiteiros",
+        description:
+            "Parceria de confiança com fornecimento ágil para suas obras nas três cidades. Cumprimos prazos!",
+    },
+    {
+        title: "Proprietários em Reforma/Construção",
+        description: `Construindo ou reformando em ${regionString}? Garantimos madeira certificada, telhas de primeira e o melhor preço.`,
+    },
+    {
+        title: "Engenheiros e Arquitetos",
+        description:
+            "Materiais que atendem às especificações técnicas do seu projeto, com consultoria especializada.",
+    },
+    {
+        title: "Pedreiros e Profissionais de Obra",
+        description:
+            "A qualidade que você precisa para executar um serviço de excelência. Conte com a CastCor!",
+    },
+];
+
+// FAQ regional
+const faqItems = [
+    {
+        question: "Há quanto tempo a CastCor Madeiras está no mercado?",
+        answer: "A CastCor Madeiras está há mais de 42 anos no mesmo endereço, oferecendo tradição e confiança em Niterói e região.",
+    },
+    {
+        question: "Quais tipos de madeiras vocês vendem?",
+        answer: "Trabalhamos com uma variedade de madeiras certificadas para telhados e construções, incluindo Maçaranduba, Cambará, Garapa, Angelim, Pinus Tratado, entre outras. Consulte nossa equipe para a melhor opção para seu projeto.",
+    },
+    {
+        question: "Quais tipos de telhas vocês vendem?",
+        answer: "Oferecemos Telhas Coloniais (Portuguesa, Americana, Laranjal Paulista, Esmaltada Karina), Telhas de Fibrocimento e Telhas Termoacústicas (Sanduíche).",
+    },
+    {
+        question: "Vocês fazem entrega em Maricá e São Gonçalo? Qual o prazo?",
+        answer: `Sim, realizamos entregas em ${regionString}. O prazo de entrega é combinado no momento do orçamento, buscando sempre a maior agilidade possível para sua obra. Consulte-nos para detalhes específicos da sua localidade.`,
+    },
+    {
+        question: "Como faço para solicitar um orçamento via WhatsApp?",
+        answer: 'É muito simples! Clique em qualquer um dos botões "WhatsApp" em nosso site. Você será direcionado para uma conversa conosco. Informe os materiais e quantidades que precisa, e a localidade da obra, que nossa equipe responderá rapidamente com seu orçamento.',
+    },
+    {
+        question: "Tenho um orçamento de outra madeireira, vocês analisam?",
+        answer: "Sim! Na CastCor Madeiras, nós analisamos outros orçamentos e fazemos o possível para cobrir a proposta, oferecendo sempre o melhor custo-benefício com a qualidade que você merece.",
+    },
+];
+
+// WhatsApp URL com mensagem regional
+const whatsappUrl = `https://wa.me/552127094545?text=Olá, CastCor! Gostaria de um orçamento para minha obra em ${regionString}.`;
+---
+
+<Layout
+    title={`CastCor: Madeiras e Telhas em ${regionString} - Qualidade Certificada`}
+>
+    <Header />
+    <main>
+        <!-- Hero Section Regional -->
+        <section class="relative py-20 md:py-32">
+            <!-- Background pattern -->
+            <div class="absolute inset-0 bg-gray-100 overflow-hidden">
+                <div class="absolute right-0 top-0 w-full h-full bg-white/30">
+                    <svg
+                        class="absolute right-0 top-0 h-full w-full"
+                        viewBox="0 0 100 100"
+                        preserveAspectRatio="none"
+                        fill="none"
+                    >
+                        <polygon points="0,0 100,0 100,100" fill="white"
+                        ></polygon>
+                    </svg>
+                </div>
+
+                <!-- Abstract shapes -->
+                <div
+                    class="absolute right-0 top-0 -mr-40 -mt-40 w-80 h-80 bg-red-100 rounded-full opacity-30 blur-3xl"
+                >
+                </div>
+                <div
+                    class="absolute left-0 bottom-0 -ml-20 -mb-20 w-60 h-60 bg-red-200 rounded-full opacity-30 blur-3xl"
+                >
+                </div>
+            </div>
+
+            <div class="container relative mx-auto px-4 md:px-6">
+                <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+                    <div>
+                        <h1
+                            class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+                        >
+                            CastCor: Madeiras e Telhas em
+                            <span class="relative text-red-600 inline-block">
+                                {regionString}
+                                <svg
+                                    class="absolute -bottom-2 left-0 w-full"
+                                    viewBox="0 0 100 12"
+                                    preserveAspectRatio="none"
+                                    height="12"
+                                >
+                                    <path
+                                        d="M0,0 C25,12 75,12 100,0 L100,12 L0,12 Z"
+                                        fill="rgb(220, 38, 38, 0.3)"></path>
+                                </svg>
+                            </span>
+                        </h1>
+                        <p
+                            class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl"
+                        >
+                            Qualidade certificada, o melhor preço da região e
+                            entrega ágil para sua construção ou reforma.
+                        </p>
+
+                        <!-- Benefícios destacados -->
+                        <div class="mb-8">
+                            <div class="flex items-center gap-2 mb-2">
+                                <div class="text-red-500">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="h-6 w-6"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-800 font-medium"
+                                    >Atendimento direto com o dono</span
+                                >
+                            </div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <div class="text-red-500">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="h-6 w-6"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-800 font-medium"
+                                    >Entrega imbatível em {regionString}</span
+                                >
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="text-red-500">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="h-6 w-6"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-800 font-medium"
+                                    >42 anos no mesmo endereço</span
+                                >
+                            </div>
+                        </div>
+
+                        <!-- CTA Section -->
+                        <div class="flex flex-col sm:flex-row gap-4 mb-10">
+                            <a
+                                href={whatsappUrl}
+                                target="_blank"
+                                class="bg-red-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-red-700 transition duration-300 text-lg inline-flex items-center justify-center"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    class="w-6 h-6 mr-2"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C6.55 22.5 1.5 17.45 1.5 10.5V8.25V4.5Z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                ENVIAR ORÇAMENTO PELO WHATSAPP
+                            </a>
+                        </div>
+
+                        <!-- Trust indicators -->
+                        <div
+                            class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8"
+                        >
+                            <div class="flex items-center gap-2">
+                                <div class="text-red-500">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="h-6 w-6"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-800 font-medium"
+                                    >+ 10.000 obras atendidas</span
+                                >
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <div class="text-red-500">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="h-6 w-6"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        ></path>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-800 font-medium"
+                                    >+ 40 anos no mesmo local</span
+                                >
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <div class="text-red-500">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="h-6 w-6"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                                        ></path>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-800 font-medium"
+                                    >Compromisso com qualidade</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero image with floating elements -->
+                    <div class="relative">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl overflow-hidden"
+                        >
+                            <Image
+                                src="/img/Design_sem_nome_(3).png"
+                                alt="CastCor Madeiras"
+                                width={800}
+                                height={600}
+                                class="w-full h-auto"
+                            />
+                        </div>
+
+                        <!-- Floating card 1: Ratings -->
+                        <div
+                            class="absolute -left-6 bottom-1/6 bg-white shadow-lg rounded-lg p-4 max-w-[180px]"
+                        >
+                            <div class="flex items-center gap-1 mb-1">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 text-yellow-400"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                >
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.784-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                                    ></path>
+                                </svg>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 text-yellow-400"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                >
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.784-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                                    ></path>
+                                </svg>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 text-yellow-400"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                >
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.784-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                                    ></path>
+                                </svg>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 text-yellow-400"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                >
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.784-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                                    ></path>
+                                </svg>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 text-yellow-400"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                >
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.784-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                                    ></path>
+                                </svg>
+                            </div>
+                            <p class="text-sm font-medium text-gray-800">
+                                Tradição e confiança em {regionString}
+                            </p>
+                        </div>
+
+                        <!-- Floating card 2: Badge -->
+                        <div
+                            class="absolute -right-6 bottom-2/6 bg-white shadow-lg rounded-lg p-4 max-w-[200px]"
+                        >
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="flex-shrink-0 bg-red-100 p-2 rounded-full"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="h-8 w-8 text-red-500"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                                        ></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-800">
+                                        Madeira certificada
+                                    </p>
+                                    <p class="text-xs text-gray-600">
+                                        Segurança e durabilidade
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Produtos Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4 md:px-6">
+                <h2
+                    class="text-3xl md:text-4xl font-bold mb-12 text-gray-800 text-center"
+                >
+                    Tudo que você precisa em Madeiras e Telhas para seu Telhado
+                    em <span class="text-red-600">{regionString}</span>
+                </h2>
+
+                <!-- Madeiras -->
+                <div class="mb-16">
+                    <h3
+                        class="text-2xl font-semibold text-gray-700 mb-8 text-center"
+                    >
+                        Madeiras Certificadas de Alta Qualidade
+                    </h3>
+                    <div
+                        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+                    >
+                        {
+                            woodProducts.map((product) => (
+                                <div class="bg-white rounded-lg p-6 text-center shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                    <Image
+                                        src={product.image}
+                                        alt={product.name}
+                                        width={300}
+                                        height={200}
+                                        class="w-full h-48 object-cover rounded-md mb-4 mx-auto"
+                                    />
+                                    <h4 class="font-semibold text-xl mb-2 text-gray-800">
+                                        {product.name}
+                                    </h4>
+                                    <p class="text-gray-600 text-sm">
+                                        {product.description}
+                                    </p>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+
+                <!-- Telhas -->
+                <div class="mb-12">
+                    <h3
+                        class="text-2xl font-semibold text-gray-700 mb-8 text-center"
+                    >
+                        Telhas para Todos os Projetos
+                    </h3>
+                    <div
+                        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+                    >
+                        {
+                            roofProducts.map((product) => (
+                                <div class="bg-white rounded-lg p-6 text-center shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                    <Image
+                                        src={product.image}
+                                        alt={product.name}
+                                        width={300}
+                                        height={200}
+                                        class="w-full h-48 object-cover rounded-md mb-4 mx-auto"
+                                    />
+                                    <h4 class="font-semibold text-xl mb-2 text-gray-800">
+                                        {product.name}
+                                    </h4>
+                                    <p class="text-gray-600 text-sm">
+                                        {product.description}
+                                    </p>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a
+                        href={`https://wa.me/552127094545?text=Olá, CastCor! Quero saber mais sobre madeiras e telhas para minha obra em ${regionString}.`}
+                        target="_blank"
+                        class="bg-red-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-red-700 transition duration-300 text-lg inline-flex items-center"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6 mr-2"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C6.55 22.5 1.5 17.45 1.5 10.5V8.25V4.5Z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        Ver Produtos e Pedir Orçamento
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefícios Section -->
+        <section class="bg-gray-50 py-20">
+            <div class="container mx-auto px-4 md:px-6">
+                <h2
+                    class="text-3xl md:text-4xl font-bold mb-12 text-gray-800 text-center"
+                >
+                    Por que Escolher a CastCor Madeiras?
+                </h2>
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    {
+                        benefits.map((benefit) => (
+                            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-8 h-8 text-red-600 mr-3">
+                                        {benefit.icon === "shield" && (
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24"
+                                                fill="currentColor"
+                                                class="w-8 h-8"
+                                            >
+                                                <path
+                                                    fill-rule="evenodd"
+                                                    d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.498 4.49 4.49 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+                                                    clip-rule="evenodd"
+                                                />
+                                            </svg>
+                                        )}
+                                        {benefit.icon === "truck" && (
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24"
+                                                fill="currentColor"
+                                                class="w-8 h-8"
+                                            >
+                                                <path d="M3.375 3C2.339 3 1.5 3.84 1.5 4.875v.75c0 1.036.84 1.875 1.875 1.875h17.25c1.035 0 1.875-.84 1.875-1.875v-.75C22.5 3.839 21.66 3 20.625 3H3.375Z" />
+                                                <path
+                                                    fill-rule="evenodd"
+                                                    d="M3.087 9l.54 9.176A3 3 0 0 0 6.62 21h10.757a3 3 0 0 0 2.995-2.824L20.913 9H3.087Zm6.163 3.75A.75.75 0 0 1 10 12h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1-.75-.75Z"
+                                                    clip-rule="evenodd"
+                                                />
+                                            </svg>
+                                        )}
+                                        {benefit.icon === "clock" && (
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24"
+                                                fill="currentColor"
+                                                class="w-8 h-8"
+                                            >
+                                                <path
+                                                    fill-rule="evenodd"
+                                                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 0 0 0-1.5h-3.75V6Z"
+                                                    clip-rule="evenodd"
+                                                />
+                                            </svg>
+                                        )}
+                                        {benefit.icon === "money" && (
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24"
+                                                fill="currentColor"
+                                                class="w-8 h-8"
+                                            >
+                                                <path d="M12 7.5a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" />
+                                                <path
+                                                    fill-rule="evenodd"
+                                                    d="M1.5 4.875C1.5 3.839 2.34 3 3.375 3h17.25c1.035 0 1.875.84 1.875 1.875v9.75c0 1.036-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 0 1 1.5 14.625v-9.75ZM8.25 9.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM18.75 9a.75.75 0 0 0-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 0 0 .75-.75V9.75a.75.75 0 0 0-.75-.75h-.008ZM4.5 9.75A.75.75 0 0 1 5.25 9h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75H5.25a.75.75 0 0 1-.75-.75V9.75Z"
+                                                    clip-rule="evenodd"
+                                                />
+                                            </svg>
+                                        )}
+                                        {benefit.icon === "user" && (
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24"
+                                                fill="currentColor"
+                                                class="w-8 h-8"
+                                            >
+                                                <path
+                                                    fill-rule="evenodd"
+                                                    d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
+                                                    clip-rule="evenodd"
+                                                />
+                                            </svg>
+                                        )}
+                                        {benefit.icon === "star" && (
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24"
+                                                fill="currentColor"
+                                                class="w-8 h-8"
+                                            >
+                                                <path
+                                                    fill-rule="evenodd"
+                                                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+                                                    clip-rule="evenodd"
+                                                />
+                                            </svg>
+                                        )}
+                                    </div>
+                                    <h3 class="font-semibold text-xl text-gray-800">
+                                        {benefit.title}
+                                    </h3>
+                                </div>
+                                <p class="text-gray-600">
+                                    {benefit.description}
+                                </p>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Público-alvo Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4 md:px-6">
+                <h2
+                    class="text-3xl md:text-4xl font-bold mb-12 text-gray-800 text-center"
+                >
+                    Atendemos seu Projeto de Telhado em <span
+                        class="text-red-600">{regionString}</span
+                    >
+                </h2>
+                <p
+                    class="text-center text-lg text-gray-600 mb-12 max-w-3xl mx-auto"
+                >
+                    Seja você carpinteiro, construtor, arquiteto ou
+                    proprietário, temos a solução ideal em madeiras e telhas
+                    para sua obra.
+                </p>
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                >
+                    {
+                        targetAudience.map((audience) => (
+                            <div class="bg-white p-6 rounded-lg shadow-lg border-l-4 border-red-600 hover:shadow-xl transition-shadow duration-300">
+                                <h3 class="font-semibold text-xl mb-2 text-gray-800">
+                                    {audience.title}
+                                </h3>
+                                <p class="text-gray-600">
+                                    {audience.description}
+                                </p>
+                            </div>
+                        ))
+                    }
+                    <div
+                        class="bg-white p-6 rounded-lg shadow-lg border-l-4 border-red-600 flex flex-col justify-center items-center text-center hover:shadow-xl transition-shadow duration-300"
+                    >
+                        <h3 class="font-semibold text-2xl mb-2 text-red-600">
+                            +10.000
+                        </h3>
+                        <p class="text-gray-600 font-medium">
+                            Obras Atendidas em Niterói e Região, incluindo {
+                                regionString
+                            }!
+                        </p>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <a
+                        href={`https://wa.me/552127094545?text=Olá, CastCor! Preciso de materiais para meu telhado em ${regionString}.`}
+                        target="_blank"
+                        class="bg-green-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-green-700 transition duration-300 text-lg inline-flex items-center"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6 mr-2"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C6.55 22.5 1.5 17.45 1.5 10.5V8.25V4.5Z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        Falar com Especialista Agora
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="bg-gray-50 py-20">
+            <div class="container mx-auto px-4 md:px-6">
+                <h2
+                    class="text-3xl md:text-4xl font-bold mb-12 text-gray-800 text-center"
+                >
+                    Perguntas Frequentes
+                </h2>
+                <div class="max-w-3xl mx-auto">
+                    {
+                        faqItems.map((item, index) => (
+                            <div class="border-b border-gray-200 py-4">
+                                <button
+                                    class="w-full text-left font-semibold text-lg text-gray-800 hover:text-red-600 transition-colors duration-300 flex justify-between items-center"
+                                    onclick={`toggleFAQ(${index})`}
+                                >
+                                    {item.question}
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="h-5 w-5 transform transition-transform duration-300"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M19 9l-7 7-7-7"
+                                        />
+                                    </svg>
+                                </button>
+                                <div
+                                    id={`faq-${index}`}
+                                    class="hidden mt-3 text-gray-600"
+                                >
+                                    <p>{item.answer}</p>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Valores Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4 md:px-6">
+                <h2
+                    class="text-3xl md:text-4xl font-bold mb-12 text-gray-800 text-center"
+                >
+                    Na CastCor Você Tem:
+                </h2>
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center"
+                >
+                    <div
+                        class="bg-white p-6 rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300"
+                    >
+                        <div
+                            class="bg-red-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="w-8 h-8"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M12.516 2.17a.75.75 0 0 0-1.032 0 11.209 11.209 0 0 1-7.877 3.08.75.75 0 0 0-.722.515A12.74 12.74 0 0 0 2.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 0 0 .374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 0 0-.722-.515 11.217 11.217 0 0 1-7.877-3.08Z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-xl mb-2 text-gray-800">
+                            Segurança
+                        </h3>
+                        <p class="text-gray-600">
+                            Madeira de procedência e certificada.
+                        </p>
+                    </div>
+                    <div
+                        class="bg-white p-6 rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300"
+                    >
+                        <div
+                            class="bg-red-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="w-8 h-8"
+                            >
+                                <path
+                                    d="M3.375 4.5C3.375 3.672 4.022 3 4.875 3h11.25c.853 0 1.5.672 1.5 1.5v1.5H3.375V4.5Z"
+                                ></path>
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M3.375 9A.75.75 0 0 0 2.625 9.75v9.75c0 .853.672 1.5 1.5 1.5h15.75c.853 0 1.5-.672 1.5-1.5V9.75A.75.75 0 0 0 20.625 9H3.375Zm4.125 3.75a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-.75.75h-3a.75.75 0 0 1-.75-.75v-3Z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-xl mb-2 text-gray-800">
+                            Agilidade
+                        </h3>
+                        <p class="text-gray-600">
+                            Seu pedido no prazo. Entrega rápida em {
+                                regionString
+                            }.
+                        </p>
+                    </div>
+                    <div
+                        class="bg-white p-6 rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300"
+                    >
+                        <div
+                            class="bg-red-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="w-8 h-8"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-xl mb-2 text-gray-800">
+                            Confiança
+                        </h3>
+                        <p class="text-gray-600">
+                            Fale direto com o dono e resolva tudo pelo WhatsApp.
+                        </p>
+                    </div>
+                    <div
+                        class="bg-white p-6 rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300"
+                    >
+                        <div
+                            class="bg-red-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="w-8 h-8"
+                            >
+                                <path
+                                    d="M12 7.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Z"
+                                ></path>
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M1.323 12.453a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 1 1-1.06 1.06L12 6.811 4.884 13.924a.75.75 0 0 1-1.06 0l-2.438-2.437a.75.75 0 0 1 0-1.061l2.437-2.438Z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-xl mb-2 text-gray-800">
+                            Economia Real
+                        </h3>
+                        <p class="text-gray-600">
+                            Analisamos outros orçamentos e cobrimos a proposta!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre Section -->
+        <section class="bg-gray-50 py-20">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2
+                        class="text-3xl md:text-4xl font-bold mb-8 text-gray-800"
+                    >
+                        Quem Somos
+                    </h2>
+                    <div
+                        class="bg-red-600 text-white rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-8 shadow-lg"
+                    >
+                        <span class="font-bold text-2xl">CC</span>
+                    </div>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                        A CastCor Madeiras é uma empresa especializada em
+                        madeiras e telhas para construção, atuando há mais de 42
+                        anos no mesmo endereço em Itaipu, Niterói.
+                    </p>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                        Atendemos com excelência profissionais da construção
+                        civil e clientes finais em <strong class="text-red-600"
+                            >{regionString}</strong
+                        >, que não abrem mão de qualidade e bom atendimento.
+                    </p>
+                    <p class="text-gray-700 text-lg leading-relaxed">
+                        Nossa missão é entregar material de primeira linha com
+                        agilidade, honestidade e um atendimento que faz a
+                        diferença, ajudando a construir e reformar sonhos.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="bg-red-600 py-16 text-white">
+            <div class="container mx-auto px-4 md:px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    Imagine seu telhado pronto, com madeira de primeira e
+                    entrega sem stress...
+                </h2>
+                <p class="text-xl mb-8">
+                    Com a CastCor Madeiras, isso é realidade!
+                </p>
+                <a
+                    href={`https://wa.me/552127094545?text=Olá, CastCor! Quero realizar o sonho do telhado perfeito com vocês. Minha obra é em ${regionString}.`}
+                    target="_blank"
+                    class="bg-white text-red-600 font-bold py-4 px-10 rounded-lg shadow-xl hover:bg-gray-100 transition duration-300 text-xl inline-flex items-center"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="w-6 h-6 mr-2"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C6.55 22.5 1.5 17.45 1.5 10.5V8.25V4.5Z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    FALAR COM A CASTCOR AGORA!
+                </a>
+            </div>
+        </section>
+
+        <Contact />
+    </main>
+    <Footer />
+</Layout>
+
+<script>
+    function toggleFAQ(index: number) {
+        const element = document.getElementById(`faq-${index}`);
+        if (!element) return;
+
+        const button = element.previousElementSibling as HTMLElement;
+        if (!button) return;
+
+        const arrow = button.querySelector("svg");
+        if (!arrow) return;
+
+        if (element.classList.contains("hidden")) {
+            element.classList.remove("hidden");
+            arrow.classList.add("rotate-180");
+        } else {
+            element.classList.add("hidden");
+            arrow.classList.remove("rotate-180");
+        }
+    }
+
+    // Tornar a função global
+    (window as any).toggleFAQ = toggleFAQ;
+</script>
