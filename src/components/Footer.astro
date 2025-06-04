@@ -190,10 +190,28 @@ import { Image } from "astro:assets";
                     target="_blank">Essência Marketing e Gestão</a
                 >
             </p>
-            <p>
-                © {new Date().getFullYear()} CastCor Madeiras. Todos os direitos
-                reservados.
-            </p>
+            <div
+                class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4"
+            >
+                <div class="flex gap-4 mb-2 md:mb-0">
+                    <a
+                        href="/termos-de-uso"
+                        class="hover:text-gray-300 underline"
+                    >
+                        Termos de Uso
+                    </a>
+                    <a
+                        href="/politicas-de-privacidade"
+                        class="hover:text-gray-300 underline"
+                    >
+                        Políticas de Privacidade
+                    </a>
+                </div>
+                <p>
+                    © {new Date().getFullYear()} CastCor Madeiras. Todos os direitos
+                    reservados.
+                </p>
+            </div>
         </div>
     </div>
 </footer>
