@@ -33,36 +33,6 @@ const {
 		</script>
 		<!-- End Google Tag Manager -->
 
-		<!-- Google tag (gtag.js) -->
-		<script
-			async
-			src="https://www.googletagmanager.com/gtag/js?id=AW-16750393330"
-		></script>
-		<script is:inline>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag("js", new Date());
-			gtag("config", "AW-16750393330");
-		</script>
-
-		<!-- Event snippet for Clique Botão WhatsApp - Landing Page CastCor -->
-		<script is:inline>
-			function gtag_report_conversion(url) {
-				var callback = function () {
-					if (typeof url != "undefined") {
-						window.location = url;
-					}
-				};
-				gtag("event", "conversion", {
-					send_to: "AW-16750393330/v2YlCNrt0csaEPLvmrM-",
-					event_callback: callback,
-				});
-				return false;
-			}
-		</script>
-
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/png" href="/favicon.png" />
@@ -124,7 +94,6 @@ const {
 			href="https://wa.me/552126094545?text=Ol%C3%A1%2C+vim+pelo+site+e+tenho+interesse+em+material+para+telhado"
 			class="fixed bottom-26 right-6 bg-green-500 hover:bg-green-600 text-white font-bold rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 z-50 flex items-center gap-2"
 			aria-label="Falar com a CastCor Agora"
-			onclick="return gtag_report_conversion(this.href);"
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
