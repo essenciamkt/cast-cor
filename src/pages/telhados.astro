@@ -18,7 +18,7 @@ const products = [
         icon: "shield",
         items: ["Maçaranduba", "Guajará"],
         image: "/img/madeiras.png",
-        whatsappMessage: "Olá, vim pelo site e tenho interesse em material para telhado",
+        whatsappMessage: "Oi, encontrei o site de vocês pelo Google e gostaria de mais informações.",
     },
     {
         id: "telhas-coloniais",
@@ -26,7 +26,7 @@ const products = [
         icon: "home",
         items: ["Telha esmaltada Karina", "Telhas Laranjal Paulista (Romana, Portuguesa e Americana)"],
         image: "/img/telhas-coloniais.png",
-        whatsappMessage: "Olá, vim pelo site e tenho interesse em material para telhado",
+        whatsappMessage: "Oi, encontrei o site de vocês pelo Google e gostaria de mais informações.",
     },
     {
         id: "telhas-fibrocimento",
@@ -34,7 +34,7 @@ const products = [
         icon: "home",
         items: ["Telha legítima Brasilit", "A melhor telha do mercado"],
         image: "/img/telha-de-fibrocimento.png",
-        whatsappMessage: "Olá! Gostaria de um orçamento para telhas de fibrocimento.",
+        whatsappMessage: "Oi, encontrei o site de vocês pelo Google e gostaria de mais informações.",
     },
     {
         id: "acessorios",
@@ -42,7 +42,7 @@ const products = [
         icon: "settings",
         items: ["Manta térmica", "Pregos e parafusos"],
         image: "/img/acessorios.png",
-        whatsappMessage: "Olá! Gostaria de um orçamento para acessórios de telhado.",
+        whatsappMessage: "Oi, encontrei o site de vocês pelo Google e gostaria de mais informações.",
     },
 ];
 
@@ -140,7 +140,7 @@ const faqItems = [
 ];
 
 // WhatsApp URL com mensagem regional
-const whatsappUrl = `https://wa.me/552127094545?text=Olá, CastCor! Gostaria de um orçamento para minha obra em ${regionString}.`;
+const whatsappUrl = `https://wa.me/552127094545?text=Oi%2C+encontrei+o+site+de+voc%C3%AAs+pelo+Google+e+gostaria+de+mais+informa%C3%A7%C3%B5es.+Minha+obra+é+em+${regionString}.`;
 ---
 
 <Layout
@@ -536,7 +536,7 @@ const whatsappUrl = `https://wa.me/552127094545?text=Olá, CastCor! Gostaria de 
                             <!-- Price tag and action -->
                             <div class="mt-6 text-center">
                                 <a
-                                    href={`https://wa.me/552126094545?text=${encodeURIComponent(product.whatsappMessage)}`}
+                                    href={`https://wa.me/552126094545?text=Oi%2C+encontrei+o+site+de+voc%C3%AAs+pelo+Google+e+gostaria+de+mais+informa%C3%A7%C3%B5es.`}
                                     class="inline-flex items-center justify-center px-4 py-2 text-center font-medium rounded-lg bg-green-500 text-white hover:bg-green-600 transition-colors w-full text-xs sm:text-sm"
                                 >
                                     ENVIAR ORÇAMENTO PELO WHATSAPP
@@ -562,7 +562,7 @@ const whatsappUrl = `https://wa.me/552127094545?text=Olá, CastCor! Gostaria de 
                     Com a CastCor Madeiras, isso é realidade!
                 </p>
                 <a
-                    href={`https://wa.me/552127094545?text=Olá, CastCor! Quero realizar o sonho do telhado perfeito com vocês. Minha obra é em ${regionString}.`}
+                    href={`https://wa.me/552127094545?text=Oi%2C+encontrei+o+site+de+voc%C3%AAs+pelo+Google+e+gostaria+de+mais+informa%C3%A7%C3%B5es.`}
                     target="_blank"
                     class="bg-white text-green-600 font-bold py-4 px-10 rounded-lg shadow-xl hover:bg-gray-100 transition duration-300 text-xl inline-flex items-center"
                 >
@@ -705,8 +705,6 @@ const whatsappUrl = `https://wa.me/552127094545?text=Olá, CastCor! Gostaria de 
                 </div>
             </div>
         </section>
-
-
 
         <!-- FAQ Section -->
         <section class="bg-gray-50 py-20">
