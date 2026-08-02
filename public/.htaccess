@@ -1,40 +1,66 @@
-# CastCor - site estatico Astro (MPA)
-# ATENCAO: NAO usar rewrite de SPA (RewriteRule . /index.html) aqui.
-# O Astro gera uma pasta real por rota (/telhados/index.html), entao o
-# roteamento ja funciona sozinho. Com o rewrite de SPA, qualquer arquivo
-# faltando passa a responder 200 com HTML em vez de 404 - o CSS/JS quebra
-# em silencio e a pagina aparece sem estilo nenhum.
+# ============================================================
+# castcormadeiras.com.br - .htaccess da RAIZ (public_html)
+# ============================================================
+# O dominio hospeda projetos diferentes na mesma raiz:
+#
+#   /              Astro estatico (este projeto)
+#   /telhados/     Astro estatico (este projeto)
+#   /revestimentos/  Astro estatico (outro projeto)
+#   /portas/       React SPA (Lovable) - assets em /lp-porta/
+#
+# Por isso NAO pode existir rewrite de SPA global. O Astro gera uma
+# pasta real por rota, entao um "RewriteRule . /index.html" faz
+# qualquer arquivo ausente responder 200 com HTML em vez de 404 -
+# o CSS/JS quebra em silencio e a pagina fica sem estilo.
+#
+# O fallback de SPA existe, mas ESCOPADO em /portas/, que e a unica
+# parte do site que veio do Lovable.
+# ============================================================
 
-# Forca HTTPS
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  RewriteBase /
+
+  # --- HTTPS ---
   RewriteCond %{HTTPS} off
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # --- SPA da LP de Portas (Lovable) ---
+  # Vale so dentro de /portas/. Arquivo, pasta ou link existente
+  # e servido direto; o resto cai no index.html DA PROPRIA LP
+  # (antes caia no index.html da raiz, servindo a home errada).
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteRule ^portas/ /portas/index.html [L]
+
+  # Fora de /portas/ nao ha rewrite: as rotas do Astro sao pastas
+  # reais e o que nao existe deve responder 404 de verdade.
 </IfModule>
 
-# Cache de assets
+# --- Cache ---
 <IfModule mod_expires.c>
   ExpiresActive On
 
-  # Arquivos com hash no nome (/_astro/) podem ter cache longo
+  # Nomes com hash (/_astro/, /lp-porta/assets/) podem ter cache longo
   ExpiresByType text/css "access plus 1 year"
   ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
 
   ExpiresByType image/png "access plus 1 month"
   ExpiresByType image/jpeg "access plus 1 month"
   ExpiresByType image/webp "access plus 1 month"
   ExpiresByType image/svg+xml "access plus 1 month"
-  ExpiresByType font/woff2 "access plus 1 year"
 </IfModule>
 
-# HTML nunca em cache, para que uma nova build apareça na hora
+# HTML sempre revalidado, para uma build nova aparecer na hora
 <IfModule mod_headers.c>
   <FilesMatch "\.html$">
     Header set Cache-Control "no-cache, must-revalidate"
   </FilesMatch>
 </IfModule>
 
-# Compressao
+# --- Compressao ---
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css text/plain
   AddOutputFilterByType DEFLATE application/javascript application/json
