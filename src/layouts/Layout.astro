@@ -33,6 +33,33 @@ const {
 		</script>
 		<!-- End Google Tag Manager -->
 
+		<!-- Rastreio de cliques no WhatsApp (dataLayer -> GTM) -->
+		<script is:inline>
+			document.addEventListener(
+				"click",
+				function (e) {
+					var t = e.target;
+					if (!t || !t.closest) return;
+					var link = t.closest(
+						'a[href*="wa.me"], a[href*="api.whatsapp.com"]',
+					);
+					if (!link) return;
+
+					var section = link.closest("section");
+					window.dataLayer = window.dataLayer || [];
+					window.dataLayer.push({
+						event: "whatsapp_click",
+						link_url: link.href,
+						link_text: (link.innerText || "").trim().slice(0, 100),
+						link_section: (section && (section.id || section.dataset.section)) || "",
+						page_path: window.location.pathname,
+					});
+				},
+				true,
+			);
+		</script>
+		<!-- End rastreio WhatsApp -->
+
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/png" href="/favicon.png" />

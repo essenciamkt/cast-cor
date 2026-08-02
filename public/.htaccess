@@ -1,0 +1,42 @@
+# CastCor - site estatico Astro (MPA)
+# ATENCAO: NAO usar rewrite de SPA (RewriteRule . /index.html) aqui.
+# O Astro gera uma pasta real por rota (/telhados/index.html), entao o
+# roteamento ja funciona sozinho. Com o rewrite de SPA, qualquer arquivo
+# faltando passa a responder 200 com HTML em vez de 404 - o CSS/JS quebra
+# em silencio e a pagina aparece sem estilo nenhum.
+
+# Forca HTTPS
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Cache de assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Arquivos com hash no nome (/_astro/) podem ter cache longo
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# HTML nunca em cache, para que uma nova build apareça na hora
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# Compressao
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
