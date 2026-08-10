@@ -60,7 +60,28 @@ Write-Host "==> 3/4  Gerando o zip" -ForegroundColor Cyan
 $carimbo = Get-Date -Format "yyyyMMdd-HHmm"
 $zip = Join-Path (Split-Path $raiz -Parent) "deploy-castcor-$carimbo.zip"
 if (Test-Path $zip) { Remove-Item $zip -Force }
-Compress-Archive -Path (Join-Path $dist "*") -DestinationPath $zip -Force
+
+# NAO usar Compress-Archive: no PowerShell 5.1 ele grava os caminhos com
+# barra invertida ("telhados\index.html"), o que viola o padrao ZIP. Certos
+# extratores criam um arquivo com esse nome literal em vez da pasta.
+# Aqui montamos as entradas na mao, sempre com barra normal.
+Add-Type -AssemblyName System.IO.Compression
+Add-Type -AssemblyName System.IO.Compression.FileSystem
+
+$fs = [System.IO.File]::Open($zip, [System.IO.FileMode]::Create)
+$arquivo = New-Object System.IO.Compression.ZipArchive($fs, [System.IO.Compression.ZipArchiveMode]::Create)
+try {
+    $prefixo = (Resolve-Path $dist).Path.TrimEnd('\') + '\'
+    foreach ($item in Get-ChildItem $dist -Recurse -File) {
+        $nome = $item.FullName.Substring($prefixo.Length).Replace('\', '/')
+        [System.IO.Compression.ZipFileExtensions]::CreateEntryFromFile(
+            $arquivo, $item.FullName, $nome,
+            [System.IO.Compression.CompressionLevel]::Optimal) | Out-Null
+    }
+} finally {
+    $arquivo.Dispose()
+    $fs.Dispose()
+}
 
 $mb = [math]::Round((Get-Item $zip).Length / 1MB, 1)
 Write-Host "    $zip  ($mb MB)" -ForegroundColor Green
